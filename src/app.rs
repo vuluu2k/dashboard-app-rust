@@ -1,3 +1,5 @@
+pub mod db;
+
 use leptos::prelude::*;
 use leptos_meta::{provide_meta_context, Stylesheet, Title};
 use leptos_router::{
@@ -14,6 +16,7 @@ pub fn App() -> impl IntoView {
         // injects a stylesheet into the document <head>
         // id=leptos means cargo-leptos will hot-reload this stylesheet
         <Stylesheet id="leptos" href="/pkg/dashboard-app-rust.css"/>
+        <link data-truck rel="tailwind-css" href="/style/input.css"></link>
 
         // sets the document title
         <Title text="Welcome to Leptos"/>
@@ -39,7 +42,7 @@ fn HomePage() -> impl IntoView {
 
     view! {
         <h1>"Welcome to Leptos!"</h1>
-        <button on:click=on_click>"Click Me: " {count}</button>
+        <button class="bg-red-500" on:click=on_click>"Click Me: " {count}</button>
     }
 }
 
